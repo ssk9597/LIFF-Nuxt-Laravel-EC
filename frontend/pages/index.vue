@@ -3,6 +3,7 @@
     <Header />
     <Hero />
     <Heading :main="'Registration'" :sub="'会員登録'" />
+    <Image />
   </div>
 </template>
 
