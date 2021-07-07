@@ -21,6 +21,7 @@ $color_yellow: #f5c500;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
 
   &-title {
     font-size: 20px;
