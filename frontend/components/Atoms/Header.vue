@@ -16,12 +16,14 @@ $color_gray: #bfbfbe;
 $color_yellow: #f5c500;
 
 .header {
+  position: fixed;
   background: $color_black;
+  width: 100%;
+  max-width: 390px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
 
   &-title {
     font-size: 20px;
