@@ -10,10 +10,10 @@ export default {};
 
 <style lang="scss" scoped>
 // color
-$color_black: '#2a2b2f';
-$color_white: '#fff';
-$color_gray: '#BFBFBE';
-$color_yellow: '#F5C500';
+$color_black: #2a2b2f;
+$color_white: #fff;
+$color_gray: #bfbfbe;
+$color_yellow: #f5c500;
 
 .header {
   background: $color_black;
