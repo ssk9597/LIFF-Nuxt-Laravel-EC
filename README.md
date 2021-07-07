@@ -1,54 +1,33 @@
-## DEV
+LIFF で動く EC サイトです。
 
-### PHP
+### 内容
 
-php:7.4-fpm-buster
+#### 商品はダウンロード商品に限定し、住所の入力が必要なくなるため会員登録は LINE ログインにする。
 
-composer:1.10
+#### ユーザーの購入した商品や行動ログを取得し、HubSpot に登録
 
-### nginx
+## デザイン
 
-nginx:1.18-alpine
+## 開発言語
 
-### mysql
+### フロントエンド
 
-mysql:5.7
+LIFF
 
-### node
+Nuxt.js
 
-node:14.15.3-alpine
+### バックエンド
 
-## Usage
+Laravel
 
-```
-$ git clone git@github.com:ssk9597/Docker-Laravel-Nuxt-Nginx-MySQL.git
-$ cd Docker-Laravel-Nuxt-Nginx-MySQL
-$ make nuxt
-$ make backend
-(任意)
-$ make typescript
-$ make composition-api
-$ make storybook
-```
+### インフラ
 
-### nuxt
+Docker
 
-http://127.0.0.1:3000/
+Netlify
 
-### storybook
+### サービス
 
-http://127.0.0.1:6006/
+HubSpot
 
-### api
-
-http://127.0.0.1:10080/
-
-## Adding a file
-
-### TypeScript
-
-https://qiita.com/Ryo9597/items/6e3d31bddcfb60cd3d8c#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%92%E8%BF%BD%E5%8A%A0
-
-### Composition-API
-
-https://qiita.com/Ryo9597/items/6e3d31bddcfb60cd3d8c#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%82%92%E8%BF%BD%E5%8A%A0-1
+Stripe
