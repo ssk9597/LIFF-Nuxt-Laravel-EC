@@ -2,6 +2,7 @@
   <div class="container">
     <Header />
     <Hero />
+    <Heading :main="'Registration'" :sub="'会員登録'" />
   </div>
 </template>
 
@@ -9,11 +10,13 @@
 // components
 import Header from '@/components/Atoms/Header';
 import Hero from '@/components/Atoms/Hero';
+import Heading from '@/components/Heading';
 
 export default {
   components: {
     Header,
     Hero,
+    Heading,
   },
   mounted() {
     window.liff.init({
