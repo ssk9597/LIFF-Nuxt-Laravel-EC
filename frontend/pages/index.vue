@@ -28,6 +28,7 @@ export default {
 $color_gray: #bfbfbe;
 
 .container {
+  margin: 0 auto;
   background: $color_gray;
   width: 100%;
   max-width: 390px;
