@@ -10,7 +10,7 @@
 // components
 import Header from '@/components/Atoms/Header';
 import Hero from '@/components/Atoms/Hero';
-import Heading from '@/components/Heading';
+import Heading from '@/components/Atoms/Heading';
 
 export default {
   components: {
