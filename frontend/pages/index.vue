@@ -11,12 +11,14 @@
 import Header from '@/components/Atoms/Header';
 import Hero from '@/components/Atoms/Hero';
 import Heading from '@/components/Atoms/Heading';
+import Image from '@/components/Atoms/Image';
 
 export default {
   components: {
     Header,
     Hero,
     Heading,
+    Image,
   },
   mounted() {
     window.liff.init({
