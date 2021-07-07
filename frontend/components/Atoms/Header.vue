@@ -9,17 +9,26 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+// color
+$color_black: '#2a2b2f';
+$color_white: '#fff';
+$color_gray: '#BFBFBE';
+$color_yellow: '#F5C500';
+
 .header {
-  background: #2a2b2f;
+  background: $color_black;
   max-width: 390px;
   width: 100%;
   height: 50px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &-title {
     font-size: 20px;
+    color: $color_white;
     font-weight: bold;
-    text-align: center;
   }
 }
 </style>
