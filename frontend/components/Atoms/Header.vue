@@ -1,5 +1,6 @@
 <template>
   <header class="header">
+    <div class="blank-space"></div>
     <p class="header-title">LIFF's Shop</p>
   </header>
 </template>
@@ -30,5 +31,9 @@ $color_yellow: #f5c500;
     color: $color_white;
     font-weight: bold;
   }
+}
+
+.blank-space {
+  padding-top: 50px;
 }
 </style>
