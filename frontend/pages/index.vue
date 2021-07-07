@@ -3,8 +3,9 @@
     <Header />
     <Hero />
     <Heading :main="'Registration'" :sub="'会員登録'" />
-    <Image />
-    <img src="@/assets/images/line.png" alt="" />
+    <div class="image">
+      <img class="img" src="@/assets/images/line.png" alt="" />
+    </div>
   </div>
 </template>
 
@@ -13,14 +14,12 @@
 import Header from '@/components/Atoms/Header';
 import Hero from '@/components/Atoms/Hero';
 import Heading from '@/components/Atoms/Heading';
-import Image from '@/components/Atoms/Image';
 
 export default {
   components: {
     Header,
     Hero,
     Heading,
-    Image,
   },
   mounted() {
     window.liff.init({
@@ -40,5 +39,9 @@ $color_gray: #bfbfbe;
   width: 100%;
   max-width: 390px;
   height: 100vh;
+}
+
+.image {
+  text-align: center;
 }
 </style>
