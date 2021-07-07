@@ -4,7 +4,7 @@
     <Hero />
     <Heading :main="'Registration'" :sub="'会員登録'" />
     <div class="image">
-      <img class="img" src="@/assets/images/line.png" alt="" />
+      <img src="@/assets/images/line.png" alt="LINEログイン" @click="lineLogin()" />
     </div>
   </div>
 </template>
@@ -25,6 +25,11 @@ export default {
     window.liff.init({
       liffId: process.env.LIFF_ID,
     });
+  },
+  methods: {
+    lineLogin() {
+      console.log('LINEログインをクリックしました');
+    },
   },
 };
 </script>
