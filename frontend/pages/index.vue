@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Header />
     <Hero />
   </div>
@@ -23,4 +23,14 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+// color
+$color_gray: #bfbfbe;
+
+.container {
+  background: $color_gray;
+  width: 100%;
+  max-width: 390px;
+  height: 100vh;
+}
+</style>

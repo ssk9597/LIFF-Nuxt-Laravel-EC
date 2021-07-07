@@ -16,11 +16,11 @@ $color_gray: #bfbfbe;
 $color_yellow: #f5c500;
 
 .header {
-  background: $color_black;
-  max-width: 390px;
-  width: 100%;
+  // background: $color_black;
+  // max-width: 390px;
+  // width: 100%;
   height: 50px;
-  margin: 0 auto;
+  // margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;

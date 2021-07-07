@@ -13,9 +13,9 @@ export default {};
 $color_gray: #bfbfbe;
 
 .hero {
-  width: 100%;
-  max-width: 390px;
+  // width: 100%;
+  // max-width: 390px;
   height: 300px;
-  background: $color_gray;
+  // background: $color_gray;
 }
 </style>
