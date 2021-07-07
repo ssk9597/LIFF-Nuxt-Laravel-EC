@@ -1,6 +1,7 @@
 <template>
   <div class="image">
     <img src="@/assets/images/line.png" alt="LINEログイン" />
+    <img src="@/assets/images/top.png" alt="" />
   </div>
 </template>
 
