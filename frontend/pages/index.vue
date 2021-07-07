@@ -4,6 +4,7 @@
     <Hero />
     <Heading :main="'Registration'" :sub="'会員登録'" />
     <Image />
+    <img src="@/assets/images/line.png" alt="" />
   </div>
 </template>
 
