@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .heading {
-  margin-top: 60px;
+  margin: 60px 0 30px 0;
   text-align: center;
   &-main {
     font-size: 32px;
