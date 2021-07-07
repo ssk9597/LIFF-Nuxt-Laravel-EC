@@ -4,7 +4,7 @@ const { API_URL } = process.env;
 export default {
   target: 'static',
   head: {
-    title: 'frontend',
+    title: "LIFF's Shop",
     htmlAttrs: {
       lang: 'ja',
     },
