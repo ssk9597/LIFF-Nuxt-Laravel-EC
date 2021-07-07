@@ -35,9 +35,6 @@ export default {
 </script>
 
 <style lang="scss">
-// color
-$color_gray: #bfbfbe;
-
 .container {
   margin: 0 auto;
   background: $color_gray;

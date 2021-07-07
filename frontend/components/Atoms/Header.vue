@@ -9,12 +9,6 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-// color
-$color_black: #2a2b2f;
-$color_white: #fff;
-$color_gray: #bfbfbe;
-$color_yellow: #f5c500;
-
 .header {
   position: fixed;
   background: $color_black;

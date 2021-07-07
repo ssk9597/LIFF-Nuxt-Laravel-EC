@@ -17,7 +17,11 @@ export default {
     script: [{ src: 'https://static.line-scdn.net/liff/edge/2/sdk.js' }],
   },
 
-  css: [],
+  css: [{src: "@/assets/styles/style.scss",  lang: "scss"}],
+
+  styleResources: {
+    scss: ["@/assets/styles/utility/_color.scss"]
+  }
 
   plugins: [],
 
@@ -31,7 +35,7 @@ export default {
     },
   },
 
-  modules: ['@nuxtjs/axios', '@nuxtjs/proxy', '@nuxtjs/dotenv'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/proxy', '@nuxtjs/dotenv', '@nuxtjs/style-resources'],
 
   env: {
     API_URL,
