@@ -4,7 +4,7 @@
       <img class="card-product-img" :src="product.image.url" />
       <p class="card-product-name">{{ product.name }}</p>
       <p class="card-product-price">¥{{ product.price }}</p>
-      <Button />
+      <Button :products="products" :buyProducts="buyProducts" />
     </div>
   </div>
 </template>
@@ -12,9 +12,18 @@
 <script>
 import Button from '@/components/Atoms/Button';
 export default {
-  props: ['products'],
   components: {
     Button,
+  },
+  props: {
+    products: {
+      type: Object,
+      required: true,
+    },
+    buyProducts: {
+      type: Function,
+      required: true,
+    },
   },
 };
 </script>

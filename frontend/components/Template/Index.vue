@@ -3,7 +3,7 @@
     <Header />
     <Hero />
     <Registration :lineLogin="lineLogin" />
-    <Product :products="products" />
+    <Product :products="products" :buyProducts="buyProducts" />
   </div>
 </template>
 
@@ -30,6 +30,10 @@ export default {
   methods: {
     lineLogin() {
       console.log('LINEログインをクリックしました');
+    },
+    buyProducts(products) {
+      console.log(products);
+      console.log('商品を購入する');
     },
   },
 };

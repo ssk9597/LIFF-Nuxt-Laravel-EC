@@ -1,11 +1,27 @@
 <template>
   <div class="button">
-    <button class="button-btn">購入する</button>
+    <button class="button-btn" @click="childBuyProduct()">購入する</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    products: {
+      type: Object,
+      required: true,
+    },
+    buyProducts: {
+      type: Function,
+      required: true,
+    },
+  },
+  methods: {
+    childBuyProduct() {
+      this.buyProducts(this.products);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

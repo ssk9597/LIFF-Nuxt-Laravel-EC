@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <Heading :main="'Product'" :sub="'商品'" />
-    <Card :products="products" />
+    <Card :products="products" :buyProducts="buyProducts" />
   </div>
 </template>
 
@@ -18,6 +18,10 @@ export default {
   props: {
     products: {
       type: Object,
+      required: true,
+    },
+    buyProducts: {
+      type: Function,
       required: true,
     },
   },
