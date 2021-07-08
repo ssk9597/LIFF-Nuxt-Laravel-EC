@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { API_URL, LIFF_ID } = process.env;
+const { API_URL, LIFF_ID, MICROCMS_API_KEY } = process.env;
 
 export default {
   target: 'static',
@@ -17,10 +17,10 @@ export default {
     script: [{ src: 'https://static.line-scdn.net/liff/edge/2/sdk.js' }],
   },
 
-  css: [{src: "@/assets/styles/style.scss",  lang: "scss"}],
+  css: [{ src: '@/assets/styles/style.scss', lang: 'scss' }],
 
   styleResources: {
-    scss: ["@/assets/styles/style.scss"]
+    scss: ['@/assets/styles/style.scss'],
   },
 
   plugins: [],
@@ -40,6 +40,7 @@ export default {
   env: {
     API_URL,
     LIFF_ID,
+    MICROCMS_API_KEY,
   },
 
   proxy: {

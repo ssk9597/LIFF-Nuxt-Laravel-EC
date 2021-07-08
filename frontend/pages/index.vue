@@ -7,7 +7,7 @@
       <img src="@/assets/images/line.png" alt="LINEログイン" @click="lineLogin()" />
     </div>
     <Heading :main="'Product'" :sub="'商品'" />
-    <Button />
+    <Card :products="products" />
   </div>
 </template>
 
@@ -16,14 +16,25 @@
 import Header from '@/components/Atoms/Header';
 import Hero from '@/components/Atoms/Hero';
 import Heading from '@/components/Atoms/Heading';
-import Button from '@/components/Atoms/Button';
+import Card from '@/components/Atoms/Card';
 
 export default {
   components: {
     Header,
     Hero,
     Heading,
-    Button,
+    Card,
+  },
+  async asyncData({ $axios }) {
+    const products = await $axios.$get('https://liff-nuxt-laravel.microcms.io/api/v1/product', {
+      headers: { 'X-API-KEY': process.env.MICROCMS_API_KEY },
+    });
+    return { products };
+  },
+  data() {
+    return {
+      products: '',
+    };
   },
   mounted() {
     window.liff.init({
@@ -44,7 +55,7 @@ export default {
   background: $color_gray;
   width: 100%;
   max-width: 390px;
-  height: 100vh;
+  padding-bottom: 60px;
 }
 
 .image {
