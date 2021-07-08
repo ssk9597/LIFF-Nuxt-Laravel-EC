@@ -18,6 +18,7 @@ export default {};
     font-size: 18px;
     font-weight: bold;
     background: $color_yellow;
+    border-color: transparent;
   }
 }
 </style>
