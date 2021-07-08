@@ -7,6 +7,7 @@
       <img src="@/assets/images/line.png" alt="LINEログイン" @click="lineLogin()" />
     </div>
     <Heading :main="'Product'" :sub="'商品'" />
+    <Button />
   </div>
 </template>
 
@@ -15,12 +16,14 @@
 import Header from '@/components/Atoms/Header';
 import Hero from '@/components/Atoms/Hero';
 import Heading from '@/components/Atoms/Heading';
+import Button from '@/components/Atoms/Button';
 
 export default {
   components: {
     Header,
     Hero,
     Heading,
+    Button,
   },
   mounted() {
     window.liff.init({
