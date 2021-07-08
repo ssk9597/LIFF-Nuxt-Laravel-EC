@@ -21,7 +21,7 @@ export default {
 
   styleResources: {
     scss: ["@/assets/styles/style.scss"]
-  }
+  },
 
   plugins: [],
 
