@@ -1,73 +1,32 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        frontend
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <Index :products="products" />
   </div>
 </template>
 
 <script>
-export default {}
+// components
+import Index from '@/components/Template/Index';
+
+export default {
+  components: {
+    Index,
+  },
+  async asyncData({ $axios }) {
+    const products = await $axios.$get('https://liff-nuxt-laravel.microcms.io/api/v1/product', {
+      headers: { 'X-API-KEY': process.env.MICROCMS_API_KEY },
+    });
+    return { products };
+  },
+  data() {
+    return {
+      products: '',
+    };
+  },
+  mounted() {
+    window.liff.init({
+      liffId: process.env.LIFF_ID,
+    });
+  },
+};
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

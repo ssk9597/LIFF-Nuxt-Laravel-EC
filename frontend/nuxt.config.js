@@ -1,10 +1,10 @@
 require('dotenv').config();
-const { API_URL } = process.env;
+const { API_URL, LIFF_ID, MICROCMS_API_KEY } = process.env;
 
 export default {
   target: 'static',
   head: {
-    title: 'frontend',
+    title: "LIFF's Shop",
     htmlAttrs: {
       lang: 'ja',
     },
@@ -14,9 +14,14 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [{ src: 'https://static.line-scdn.net/liff/edge/2/sdk.js' }],
   },
 
-  css: [],
+  css: [{ src: '@/assets/styles/style.scss', lang: 'scss' }],
+
+  styleResources: {
+    scss: ['@/assets/styles/style.scss'],
+  },
 
   plugins: [],
 
@@ -30,10 +35,12 @@ export default {
     },
   },
 
-  modules: ['@nuxtjs/axios', '@nuxtjs/proxy', '@nuxtjs/dotenv'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/proxy', '@nuxtjs/dotenv', '@nuxtjs/style-resources'],
 
   env: {
     API_URL,
+    LIFF_ID,
+    MICROCMS_API_KEY,
   },
 
   proxy: {
