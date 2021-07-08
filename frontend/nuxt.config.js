@@ -20,7 +20,7 @@ export default {
   css: [{src: "@/assets/styles/style.scss",  lang: "scss"}],
 
   styleResources: {
-    scss: ["@/assets/styles/utility/_color.scss"]
+    scss: ["@/assets/styles/style.scss"]
   }
 
   plugins: [],
