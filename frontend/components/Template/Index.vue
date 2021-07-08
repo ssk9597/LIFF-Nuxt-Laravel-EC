@@ -2,7 +2,7 @@
   <div class="container">
     <Header />
     <Hero />
-    <Registration />
+    <Registration :lineLogin="lineLogin" />
     <Product :products="products" />
   </div>
 </template>
@@ -25,6 +25,11 @@ export default {
     products: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    lineLogin() {
+      console.log('LINEログインをクリックしました');
     },
   },
 };
