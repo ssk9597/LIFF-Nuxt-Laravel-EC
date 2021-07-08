@@ -6,6 +6,7 @@
     <div class="image">
       <img src="@/assets/images/line.png" alt="LINEログイン" @click="lineLogin()" />
     </div>
+    <Heading :main="'Product'" :sub="'商品'" />
   </div>
 </template>
 
