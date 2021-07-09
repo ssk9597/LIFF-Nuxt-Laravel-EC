@@ -1,6 +1,7 @@
 <template>
   <div class="registration">
     <Heading :main="'Registration'" :sub="'会員登録'" />
+
     <div class="image">
       <img src="@/assets/images/line.png" alt="LINEログイン" @click="childLineLogin" />
     </div>
