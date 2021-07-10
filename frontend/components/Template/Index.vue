@@ -30,14 +30,8 @@ export default {
   methods: {
     async lineLogin() {
       // ログイン
-      if (!liff.isLoggedIn()) {
-        await liff.login({
-          redirectUri: 'https://deploy-preview-3--liff-nuxt-laravel-ec.netlify.app/',
-        });
-        alert('ログインしました');
-      } else {
-        alert('ログインしていました');
-      }
+      await liff.login();
+      alert('ログインしました');
       // トークン取得
       const idToken = await liff.getIDToken();
       alert(idToken);
