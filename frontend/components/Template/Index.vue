@@ -39,10 +39,7 @@ export default {
           client_id: process.env.LIFF_CHANNEL_ID,
         });
       } catch (err) {
-        err.response.data.foreach(err => {
-          alert(err);
-        });
-        // alert(err.response.data);
+        alert(err.response.data);
       }
     },
     buyProducts(products) {
