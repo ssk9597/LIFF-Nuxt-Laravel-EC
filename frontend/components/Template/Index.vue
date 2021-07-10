@@ -29,19 +29,23 @@ export default {
   },
   methods: {
     async lineLogin() {
+      // try {
+      // トークン取得
+      const idToken = await liff.getIDToken();
+      alert(idToken);
+      //プロフィール取得
       try {
-        // トークン取得
-        const idToken = await liff.getIDToken();
-        alert(idToken);
-        //プロフィール取得
         const profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
           id_token: idToken,
           client_id: process.env.LIFF_CHANNEL_ID,
         });
         alert(profile);
       } catch (err) {
-        alert(err.error_description);
+        alert(err);
       }
+      // } catch (err) {
+      // alert(err);
+      // }
     },
     buyProducts(products) {
       console.log(products);
