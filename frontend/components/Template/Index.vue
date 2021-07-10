@@ -49,7 +49,7 @@ export default {
         });
 
       const idToken = liff.getIDToken();
-      alert(idToken.email);
+      alert(idToken);
       console.log('LINEログインをクリックしました');
     },
     buyProducts(products) {
