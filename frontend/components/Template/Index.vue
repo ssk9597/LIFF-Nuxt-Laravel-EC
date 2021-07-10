@@ -29,6 +29,12 @@ export default {
   },
   methods: {
     lineLogin() {
+      if (!liff.isLoggedIn()) {
+        liff.login({ redirectUri: 'https://deploy-preview-3--liff-nuxt-laravel-ec.netlify.app/' });
+        alert('ログインしました');
+      } else {
+        alert('ログインしていました');
+      }
       console.log('LINEログインをクリックしました');
     },
     buyProducts(products) {
