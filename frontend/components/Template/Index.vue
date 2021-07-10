@@ -29,12 +29,22 @@ export default {
   },
   methods: {
     lineLogin() {
+      // ログイン
       if (!liff.isLoggedIn()) {
         liff.login({ redirectUri: 'https://deploy-preview-3--liff-nuxt-laravel-ec.netlify.app/' });
         alert('ログインしました');
       } else {
         alert('ログインしていました');
       }
+      // プロフィール取得
+      liff
+        .getProfile()
+        .then(profile => {
+          alert(profile);
+        })
+        .catch(err => {
+          alert('error', err);
+        });
       console.log('LINEログインをクリックしました');
     },
     buyProducts(products) {
