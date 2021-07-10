@@ -27,20 +27,26 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      idToken: '',
+      profile: '',
+    };
+  },
   methods: {
     async lineLogin() {
       try {
         // トークン取得
-        const idToken = await liff.getIDToken();
-        alert(idToken);
-        if (idToken) {
+        this.idToken = await liff.getIDToken();
+        alert(this.idToken);
+        if (this.idToken) {
           //プロフィール取得
-          const profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
-            id_token: idToken,
+          this.profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
+            id_token: this.idToken,
             client_id: process.env.LIFF_CHANNEL_ID,
           });
         }
-        console.log(profile.email);
+        console.log(this.profile.email);
       } catch (err) {
         alert(err.response.data.error);
         alert(err.response.data.error_description);
