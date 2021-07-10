@@ -28,28 +28,20 @@ export default {
     },
   },
   methods: {
-    lineLogin() {
+    async lineLogin() {
       // ログイン
       if (!liff.isLoggedIn()) {
-        liff.login({ redirectUri: 'https://deploy-preview-3--liff-nuxt-laravel-ec.netlify.app/' });
+        await liff.login({
+          redirectUri: 'https://deploy-preview-3--liff-nuxt-laravel-ec.netlify.app/',
+        });
         alert('ログインしました');
       } else {
         alert('ログインしていました');
       }
-      // プロフィール取得
-      liff
-        .getProfile()
-        .then(profile => {
-          alert(
-            `userID: ${profile.userId}, name: ${profile.displayName}, image: ${profile.pictureUrl}`
-          );
-        })
-        .catch(err => {
-          alert('error', err);
-        });
-
-      const idToken = liff.getIDToken();
+      // トークン取得
+      const idToken = await liff.getIDToken();
       alert(idToken);
+
       console.log('LINEログインをクリックしました');
     },
     buyProducts(products) {
