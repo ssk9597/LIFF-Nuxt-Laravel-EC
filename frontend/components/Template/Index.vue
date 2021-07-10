@@ -31,8 +31,8 @@ export default {
     async lineLogin() {
       // ログイン
       try {
-        await liff.login();
-        alert('ログインしました');
+        // await liff.login();
+        // alert('ログインしました');
         // トークン取得
         const idToken = await liff.getIDToken();
         alert(idToken);
@@ -44,8 +44,6 @@ export default {
         alert(profile);
       } catch (err) {
         alert(err);
-        alert(err.response);
-        alert(err.request);
       }
     },
     buyProducts(products) {
