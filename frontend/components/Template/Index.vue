@@ -37,12 +37,11 @@ export default {
         const idToken = await liff.getIDToken();
         alert(idToken);
         //プロフィール取得
-        alert(process.env.LIFF_CHANNEL_ID);
         const profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
           id_token: idToken,
           client_id: process.env.LIFF_CHANNEL_ID,
         });
-        alert(profile.name);
+        alert(profile);
       } catch (err) {
         alert(err);
       }
