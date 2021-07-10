@@ -47,6 +47,9 @@ export default {
         .catch(err => {
           alert('error', err);
         });
+
+      const idToken = liff.getIDToken();
+      alert(idToken.email);
       console.log('LINEログインをクリックしました');
     },
     buyProducts(products) {
