@@ -29,10 +29,7 @@ export default {
   },
   methods: {
     async lineLogin() {
-      // ログイン
       try {
-        // await liff.login();
-        // alert('ログインしました');
         // トークン取得
         const idToken = await liff.getIDToken();
         alert(idToken);
@@ -43,7 +40,7 @@ export default {
         });
         alert(profile);
       } catch (err) {
-        alert(err);
+        alert(err.error_description);
       }
     },
     buyProducts(products) {
