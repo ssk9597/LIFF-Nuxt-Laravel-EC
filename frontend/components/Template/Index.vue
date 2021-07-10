@@ -36,11 +36,10 @@ export default {
         //プロフィール取得
         const profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
           id_token: idToken,
-          client_id: 1656187153,
+          client_id: process.env.LIFF_CHANNEL_ID,
         });
         console.log(profile.email);
       } catch (err) {
-        alert(err.response.data);
         alert(err.response.data.error);
         alert(err.response.data.error_description);
       }
