@@ -45,6 +45,8 @@ export default {
             id_token: this.idToken,
             client_id: process.env.LIFF_CHANNEL_ID,
           });
+        } else {
+          alert('ログイン失敗しました。大変お手数ですがもう1度お試しください');
         }
         console.log(this.profile.email);
       } catch (err) {
