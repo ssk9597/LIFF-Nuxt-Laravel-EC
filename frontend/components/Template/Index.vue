@@ -40,7 +40,9 @@ export default {
       liff
         .getProfile()
         .then(profile => {
-          alert(profile);
+          alert(
+            `userID: ${profile.userId}, name: ${profile.displayName}, image: ${profile.pictureUrl}`
+          );
         })
         .catch(err => {
           alert('error', err);
