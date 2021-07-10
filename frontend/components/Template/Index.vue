@@ -44,6 +44,8 @@ export default {
         alert(profile);
       } catch (err) {
         alert(err);
+        alert(err.response);
+        alert(err.request);
       }
     },
     buyProducts(products) {
