@@ -41,14 +41,15 @@ export default {
         alert(this.idToken);
         if (this.idToken) {
           //プロフィール取得
-          this.profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
-            id_token: this.idToken,
-            client_id: process.env.LIFF_CHANNEL_ID,
-          });
+          this.profile = liff.getDecodedIDToken();
+          // this.profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
+          //   id_token: this.idToken,
+          //   client_id: process.env.LIFF_CHANNEL_ID,
+          // });
+          console.log(this.profile);
         } else {
           alert('ログイン失敗しました。大変お手数ですがもう1度お試しください');
         }
-        console.log(this.profile.email);
       } catch (err) {
         alert(err.response.data.error);
         alert(err.response.data.error_description);
