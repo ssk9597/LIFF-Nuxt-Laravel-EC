@@ -39,17 +39,13 @@ export default {
         // トークン取得
         this.idToken = await liff.getIDToken();
         alert(this.idToken);
-        if (this.idToken) {
-          //プロフィール取得
-          const profile = liff.getDecodedIDToken();
-          // this.profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
-          //   id_token: this.idToken,
-          //   client_id: process.env.LIFF_CHANNEL_ID,
-          // });
-          console.log(profile);
-        } else {
-          alert('ログイン失敗しました。大変お手数ですがもう1度お試しください');
-        }
+        //プロフィール取得
+        const profile = liff.getDecodedIDToken();
+        // this.profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
+        //   id_token: this.idToken,
+        //   client_id: process.env.LIFF_CHANNEL_ID,
+        // });
+        console.log(profile);
       } catch (err) {
         alert(err.response.data.error);
         alert(err.response.data.error_description);
