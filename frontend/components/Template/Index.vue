@@ -31,7 +31,9 @@ export default {
     async lineLogin() {
       try {
         const Token = liff.getDecodedIDToken();
-        alert(Token);
+        alert(Token.name);
+        alert(Token.picture);
+        alert(Token.email);
         // トークン取得
         const idToken = await liff.getIDToken();
         alert(idToken);
