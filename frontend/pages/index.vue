@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p>{{ test }}</p>
     <Index :products="products" />
   </div>
 </template>
@@ -17,13 +16,11 @@ export default {
     const products = await $axios.$get('https://liff-nuxt-laravel.microcms.io/api/v1/product', {
       headers: { 'X-API-KEY': process.env.MICROCMS_API_KEY },
     });
-    const test = await $axios.$get('/');
-    return { products, test };
+    return { products };
   },
   data() {
     return {
       products: '',
-      test: '',
     };
   },
   mounted() {
