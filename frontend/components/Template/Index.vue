@@ -30,6 +30,8 @@ export default {
   methods: {
     async lineLogin() {
       try {
+        const Token = liff.getDecodedIDToken();
+        alert(Token);
         // トークン取得
         const idToken = await liff.getIDToken();
         alert(idToken);
