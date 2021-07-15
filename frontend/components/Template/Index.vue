@@ -30,19 +30,21 @@ export default {
   methods: {
     async lineLogin() {
       try {
-        const Token = liff.getDecodedIDToken();
-        alert(Token.name);
-        alert(Token.picture);
-        alert(Token.email);
-        // トークン取得
-        const idToken = await liff.getIDToken();
-        alert(idToken);
-        //プロフィール取得
-        const profile = await this.$axios.$post('https://api.line.me/oauth2/v2.1/verify', {
-          id_token: idToken,
-          client_id: process.env.LIFF_CHANNEL_ID,
-        });
-        console.log(profile);
+        const profile = liff.getDecodedIDToken();
+        if (profile === null) {
+          alert('ログインに失敗しました。もう1度行なってください');
+        } else {
+          // 名前
+          const name = profile.name;
+          // サムネイル
+          const thumbnail = profile.picture;
+          // メールアドレス
+          const email = profile.email;
+
+          alert(name);
+          alert(thumbnail);
+          alert(email);
+        }
       } catch (err) {
         alert(err.response.data.error);
         alert(err.response.data.error_description);
