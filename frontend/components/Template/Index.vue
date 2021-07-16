@@ -55,12 +55,8 @@ export default {
             headers: { accept: 'application/json', 'content-type': 'application/json' },
             body: {
               properties: {
-                company: 'Biglytics',
-                email: 'bcooper@biglytics.net',
-                firstname: 'Bryan',
-                lastname: 'Cooper',
-                phone: '(877) 929-0687',
-                website: 'biglytics.net',
+                email: email,
+                firstname: name,
               },
             },
             json: true,
