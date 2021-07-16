@@ -66,6 +66,7 @@ export default {
           );
         }
       } catch (err) {
+        alert(err);
         alert(err.response.data.error);
         alert(err.response.data.error_description);
       }
