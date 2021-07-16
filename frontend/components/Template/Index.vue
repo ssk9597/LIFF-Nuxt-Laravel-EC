@@ -46,8 +46,6 @@ export default {
           alert(email);
 
           // HubSpotにユーザーを登録する
-          var request = require('request');
-
           var options = {
             method: 'POST',
             url: 'https://api.hubapi.com/crm/v3/objects/contacts',
@@ -62,7 +60,7 @@ export default {
             json: true,
           };
 
-          request(options, function (error, response, body) {
+          axios(options, function (error, response, body) {
             if (error) throw new Error(error);
 
             console.log(body);
