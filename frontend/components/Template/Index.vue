@@ -14,6 +14,9 @@ import Hero from '@/components/Molecules/Hero';
 import Registration from '@/components/Molecules/Registration';
 import Product from '@/components/Molecules/Product';
 
+// request
+const request = require('request');
+
 export default {
   components: {
     Header,
