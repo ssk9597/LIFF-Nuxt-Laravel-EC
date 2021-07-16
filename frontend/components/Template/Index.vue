@@ -44,6 +44,26 @@ export default {
           alert(name);
           alert(thumbnail);
           alert(email);
+
+          // HubSpotにユーザーを登録する
+          this.$axios.$post(
+            'https://api.hubapi.com/crm/v3/objects/contacts',
+            {
+              properties: {
+                email: email,
+                firstname: name,
+              },
+            },
+            {
+              headers: {
+                accept: 'application/json',
+                'content-type': 'application/json',
+              },
+              qs: {
+                hapikey: process.env.HUBSPOT_API_KEY,
+              },
+            }
+          );
         }
       } catch (err) {
         alert(err.response.data.error);
