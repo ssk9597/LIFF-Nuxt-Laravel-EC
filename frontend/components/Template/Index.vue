@@ -46,24 +46,50 @@ export default {
           alert(email);
 
           // HubSpotにユーザーを登録する
-          this.$axios.$post(
-            'https://api.hubapi.com/crm/v3/objects/contacts',
-            {
+          var request = require('request');
+
+          var options = {
+            method: 'POST',
+            url: 'https://api.hubapi.com/crm/v3/objects/contacts',
+            qs: { hapikey: process.env.HUBSPOT_API_KEY },
+            headers: { accept: 'application/json', 'content-type': 'application/json' },
+            body: {
               properties: {
-                email: email,
-                firstname: name,
+                company: 'Biglytics',
+                email: 'bcooper@biglytics.net',
+                firstname: 'Bryan',
+                lastname: 'Cooper',
+                phone: '(877) 929-0687',
+                website: 'biglytics.net',
               },
             },
-            {
-              headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-              },
-              qs: {
-                hapikey: process.env.HUBSPOT_API_KEY,
-              },
-            }
-          );
+            json: true,
+          };
+
+          request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+
+            console.log(body);
+          });
+
+          // this.$axios.$post(
+          //   'https://api.hubapi.com/crm/v3/objects/contacts',
+          //   {
+          //     properties: {
+          //       email: email,
+          //       firstname: name,
+          //     },
+          //   },
+          //   {
+          //     headers: {
+          //       accept: 'application/json',
+          //       'content-type': 'application/json',
+          //     },
+          //     qs: {
+          //       hapikey: process.env.HUBSPOT_API_KEY,
+          //     },
+          //   }
+          // );
         }
       } catch (err) {
         alert(err);
