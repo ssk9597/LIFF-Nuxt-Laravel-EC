@@ -14,7 +14,8 @@
     "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.9.1",
     "css-wipe": "^4.3.0",
-    "nuxt": "^2.15.3"
+    "nuxt": "^2.15.3",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.2.0",

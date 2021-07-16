@@ -46,10 +46,10 @@ export default {
           alert(email);
 
           // HubSpotにユーザーを登録する
-          var options = {
+          const options = {
             method: 'POST',
             url: 'https://api.hubapi.com/crm/v3/objects/contacts',
-            qs: { hapikey: process.env.HUBSPOT_API_KEY },
+            qs: { hapikey: 'YOUR_HUBSPOT_API_KEY' },
             headers: { accept: 'application/json', 'content-type': 'application/json' },
             body: {
               properties: {
@@ -60,30 +60,13 @@ export default {
             json: true,
           };
 
-          axios(options, function (error, response, body) {
-            if (error) throw new Error(error);
+          request(options, function(err, response, body) {
+            if (err) {
+              alert(err);
+            }
 
-            console.log(body);
+            alert(body);
           });
-
-          // this.$axios.$post(
-          //   'https://api.hubapi.com/crm/v3/objects/contacts',
-          //   {
-          //     properties: {
-          //       email: email,
-          //       firstname: name,
-          //     },
-          //   },
-          //   {
-          //     headers: {
-          //       accept: 'application/json',
-          //       'content-type': 'application/json',
-          //     },
-          //     qs: {
-          //       hapikey: process.env.HUBSPOT_API_KEY,
-          //     },
-          //   }
-          // );
         }
       } catch (err) {
         alert(err);
