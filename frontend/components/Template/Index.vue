@@ -41,35 +41,21 @@ export default {
           // メールアドレス
           const email = profile.email;
 
-          alert(name);
-          alert(thumbnail);
-          alert(email);
-
           // HubSpotにユーザーを登録する
-          const options = {
-            method: 'POST',
-            url: 'https://api.hubapi.com/crm/v3/objects/contacts',
-            qs: { hapikey: process.env.HUBSPOT_API_KEY },
-            headers: { accept: 'application/json', 'content-type': 'application/json' },
-            body: {
+          await this.$axios.$post(
+            `https://api.hubapi.com/crm/v3/objects/contacts?hapikey=${process.env.HUBSPOT_API_KEY}`,
+            {
               properties: {
                 email: email,
                 firstname: name,
               },
             },
-            json: true,
-          };
-
-          // request
-          const request = require('request');
-
-          request(options, function(err, response, body) {
-            if (err) {
-              alert(err);
+            {
+              headers: {
+                'content-type': 'application/json',
+              },
             }
-
-            alert(body);
-          });
+          );
         }
       } catch (err) {
         alert(err);
