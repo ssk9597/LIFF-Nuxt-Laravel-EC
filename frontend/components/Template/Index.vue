@@ -49,7 +49,7 @@ export default {
           const options = {
             method: 'POST',
             url: 'https://api.hubapi.com/crm/v3/objects/contacts',
-            qs: { hapikey: 'YOUR_HUBSPOT_API_KEY' },
+            qs: { hapikey: process.env.HUBSPOT_API_KEY },
             headers: { accept: 'application/json', 'content-type': 'application/json' },
             body: {
               properties: {
