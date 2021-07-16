@@ -45,14 +45,17 @@ export default {
           await this.$axios.$post(
             `https://api.hubapi.com/crm/v3/objects/contacts?hapikey=${process.env.HUBSPOT_API_KEY}`,
             {
-              properties: {
-                email: email,
-                firstname: name,
+              body: {
+                properties: {
+                  email: email,
+                  firstname: name,
+                },
               },
             },
             {
               headers: {
                 'content-type': 'application/json',
+                'Content-Type': 'application/json; charset=UTF-8',
               },
             }
           );
