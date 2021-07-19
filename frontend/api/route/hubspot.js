@@ -38,3 +38,5 @@ router.post('/hubspot', (req, res) => {
     });
   }
 });
+
+module.exports = router;
