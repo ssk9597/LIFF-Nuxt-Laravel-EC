@@ -54,5 +54,7 @@ export default {
     browserBaseURL: process.env.API_URL,
   },
 
+  serverMiddleware: ['~/api/index.js'],
+
   build: {},
 };
