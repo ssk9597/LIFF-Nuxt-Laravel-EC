@@ -12,10 +12,10 @@ class HubSpotController extends Controller
     try {
       // request
       $idToken = $request->input("idToken");
-      return $idToken;
 
-      // // env
-      // $clientID = config("env.line_client_id");
+      // env
+      $clientID = config("env.line_client_id");
+      return $clientID;
 
       // // guzzle
       // $client = new Client();
