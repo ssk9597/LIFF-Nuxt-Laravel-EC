@@ -27,8 +27,11 @@ class HubSpotController extends Controller
       // ]);
 
       return $response;
-    } catch (\Exception $e) {
-      return $e;
+    } catch (\GuzzleHttp\Exception\BadResponseException $e) {
+      return $e->getResponse()->getBody()->getContents();
     }
+    // } catch (\Exception $e) {
+    //   return $e;
+    // }
   }
 }
