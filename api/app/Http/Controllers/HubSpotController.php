@@ -26,10 +26,7 @@ class HubSpotController extends Controller
         ]
       ]);
 
-      $name = $response->name;
-      $email = $response->email;
-
-      return $name;
+      return $response;
     } catch (\Exception $e) {
       return $e;
     }
