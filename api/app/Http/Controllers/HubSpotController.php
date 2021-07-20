@@ -30,11 +30,7 @@ class HubSpotController extends Controller
       ]);
 
       $profile = $response->getBody()->getContents();
-
-      $name = $profile[name];
-      Log::info($name);
-      Log::info($response->getBody()->getContents());
-      return $response->getBody()->getContents();
+      Log::info($profile);
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
       Log::info($e);
       return $e->getResponse()->getBody()->getContents();
