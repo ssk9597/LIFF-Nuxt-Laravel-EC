@@ -33,10 +33,14 @@ export default {
         // IDトークン
         const idToken = liff.getIDToken();
         alert(idToken);
-        await this.$axios.$post('/hubspot/store', {
-          idToken: idToken,
-        });
-        return redirect('/');
+        if (idToken) {
+          await this.$axios.$post('/hubspot/store', {
+            idToken: idToken,
+          });
+          return redirect('/');
+        } else {
+          alert('ログイン失敗しました。もう一度お試しください。');
+        }
       } catch (err) {
         alert(err);
         alert(err.response.data.error);
