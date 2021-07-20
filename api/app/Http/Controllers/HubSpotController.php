@@ -28,8 +28,8 @@ class HubSpotController extends Controller
           "client_id" => $clientID
         ]
       ]);
-      Log::info($response);
-      return $response;
+      Log::info($response->getBody()->getContents());
+      return $response->getBody()->getContents();
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
       Log::info($e);
       return $e->getResponse()->getBody()->getContents();
