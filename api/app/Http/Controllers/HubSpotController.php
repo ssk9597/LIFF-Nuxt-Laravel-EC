@@ -14,8 +14,7 @@ class HubSpotController extends Controller
       $idToken = $request->input("idToken");
 
       // env
-      // $clientID = config("env.line_client_id");
-      $clientID = "1656187153";
+      $clientID = config("env.line_client_id");
 
       // guzzle
       $client = new Client();
