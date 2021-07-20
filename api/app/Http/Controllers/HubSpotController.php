@@ -10,31 +10,21 @@ class HubSpotController extends Controller
   public function store(Request $request)
   {
     try {
-      include('vendor/rmccue/requests/library/Requests.php');
       // request
       $idToken = $request->input("idToken");
 
       // env
       $clientID = config("env.line_client_id");
 
-      // request
-      $headers = array();
-      $data = array(
-        'id_token' => $idToken,
-        'client_id' => $clientID
-      );
-      $response = Requests::post('https://api.line.me/oauth2/v2.1/verify', $headers, $data);
-
-
-      // // guzzle
-      // $client = new Client();
-      // $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
-      // // $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
-      // //   "form_params" => [
-      // //     "id_token" => $idToken,
-      // //     "client_id" => $clientID
-      // //   ]
-      // // ]);
+      // guzzle
+      $client = new Client();
+      $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
+      $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
+        "form_params" => [
+          "id_token" => $idToken,
+          "client_id" => $clientID
+        ]
+      ]);
 
       return $response;
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {

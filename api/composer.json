@@ -12,8 +12,7 @@
         "fideloper/proxy": "^4.4",
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^6.20",
-        "laravel/tinker": "^2.5",
-        "rmccue/requests": "^1.8"
+        "laravel/tinker": "^2.5"
     },
     "require-dev": {
         "facade/ignition": "^1.16.4",
