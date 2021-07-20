@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
+// Log
+use Illuminate\Support\Facades\Log;
+
 class HubSpotController extends Controller
 {
   public function store(Request $request)
@@ -25,9 +28,10 @@ class HubSpotController extends Controller
           "client_id" => $clientID
         ]
       ]);
-
+      Log::info($response);
       return $response;
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
+      Log::info($e);
       return $e->getResponse()->getBody()->getContents();
     }
     // } catch (\Exception $e) {
