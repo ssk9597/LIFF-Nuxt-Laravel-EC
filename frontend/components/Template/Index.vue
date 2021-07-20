@@ -34,7 +34,7 @@ export default {
         const idToken = liff.getIDToken();
         alert(idToken);
         if (idToken) {
-          const test = await this.$axios.$get('/hubspot', {
+          const test = await this.$axios.$post('/hubspot', {
             idToken: idToken,
           });
           alert(test);
