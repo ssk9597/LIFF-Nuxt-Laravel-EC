@@ -15,10 +15,10 @@ class HubSpotController extends Controller
 
       // env
       $clientID = config("env.line_client_id");
-      return $clientID;
 
-      // // guzzle
-      // $client = new Client();
+      // guzzle
+      $client = new Client();
+      $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
       // $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
       //   "form_params" => [
       //     "id_token" => $idToken,
@@ -26,7 +26,7 @@ class HubSpotController extends Controller
       //   ]
       // ]);
 
-      // return $response;
+      return $response;
     } catch (\Exception $e) {
       return $e;
     }
