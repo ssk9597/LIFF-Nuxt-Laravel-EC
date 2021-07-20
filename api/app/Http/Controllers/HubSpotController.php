@@ -12,20 +12,21 @@ class HubSpotController extends Controller
     try {
       // request
       $idToken = $request->input("idToken");
+      return $idToken;
 
-      // env
-      $clientID = config("env.line_client_id");
+      // // env
+      // $clientID = config("env.line_client_id");
 
-      // guzzle
-      $client = new Client();
-      $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
-        "form_params" => [
-          "id_token" => $idToken,
-          "client_id" => $clientID
-        ]
-      ]);
+      // // guzzle
+      // $client = new Client();
+      // $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
+      //   "form_params" => [
+      //     "id_token" => $idToken,
+      //     "client_id" => $clientID
+      //   ]
+      // ]);
 
-      return $response;
+      // return $response;
     } catch (\Exception $e) {
       return $e;
     }
