@@ -68,7 +68,7 @@ class HubSpotController extends Controller
         CURLOPT_TIMEOUT => 30,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "{\"properties\":{\"email\":$profileEmail,\"firstname\":$profileName}}",
+        CURLOPT_POSTFIELDS => "{\"properties\":{\"email\":\"aaa@gmail.com\",\"firstname\":\"aaa\"}}",
         CURLOPT_HTTPHEADER => array(
           "accept: application/json",
           "content-type: application/json"
