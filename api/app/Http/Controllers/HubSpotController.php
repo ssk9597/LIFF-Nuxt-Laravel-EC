@@ -39,7 +39,7 @@ class HubSpotController extends Controller
       $a = [
         "properties" => [
           "email" => $profileEmail,
-          "firstname" => $profileName,
+          "firstname" => $profileName
         ]
       ];
 

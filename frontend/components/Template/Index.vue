@@ -37,7 +37,6 @@ export default {
           await this.$axios.$post('/hubspot/store', {
             idToken: idToken,
           });
-          return redirect('/');
         } else {
           alert('ログイン失敗しました。もう一度お試しください。');
         }
