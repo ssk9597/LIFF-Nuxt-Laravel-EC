@@ -38,52 +38,52 @@ class HubSpotController extends Controller
 
 
       // Register HubSpot
-      // $data = array(
-      //   "properties" => [
-      //     "email" => $profileEmail,
-      //     "firstname" => $profileName
-      //   ]
-      // );
+      $data = array(
+        "properties" => [
+          "email" => $profileEmail,
+          "firstname" => $profileName
+        ]
+      );
 
-      // $formParams = json_encode($data, JSON_UNESCAPED_UNICODE);
+      $formParams = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-      // Log::info($formParams);
+      Log::info($formParams);
 
-      // $hubspot = $client->request("POST", "https://api.hubapi.com/crm/v3/objects/contacts?hapikey=" . $HubSpotApiKey, [
-      //   "headers" => [
-      //     'content-type' => 'application/json'
-      //   ],
-      //   'form_params' => [$formParams]
-      // ]);
+      $hubspot = $client->request("POST", "https://api.hubapi.com/crm/v3/objects/contacts?hapikey=" . $HubSpotApiKey, [
+        "headers" => [
+          'content-type' => 'application/json'
+        ],
+        'form_params' => "{\"properties\":{\"email\":\"bbb@gmail.com\",\"firstname\":\"bbb\"}}"
+      ]);
 
-      // Log::info($hubspot);
+      Log::info($hubspot);
 
-      $curl = curl_init();
+      // $curl = curl_init();
 
-      curl_setopt_array($curl, array(
-        CURLOPT_URL => "https://api.hubapi.com/crm/v3/objects/contacts?hapikey=" . $HubSpotApiKey,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "{\"properties\":{\"email\":\"aaa@gmail.com\",\"firstname\":\"aaa\"}}",
-        CURLOPT_HTTPHEADER => array(
-          "accept: application/json",
-          "content-type: application/json"
-        ),
-      ));
+      // curl_setopt_array($curl, array(
+      //   CURLOPT_URL => "https://api.hubapi.com/crm/v3/objects/contacts?hapikey=" . $HubSpotApiKey,
+      //   CURLOPT_RETURNTRANSFER => true,
+      //   CURLOPT_ENCODING => "",
+      //   CURLOPT_MAXREDIRS => 10,
+      //   CURLOPT_TIMEOUT => 30,
+      //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      //   CURLOPT_CUSTOMREQUEST => "POST",
+      //   CURLOPT_POSTFIELDS => "{\"properties\":{\"email\":\"aaa@gmail.com\",\"firstname\":\"aaa\"}}",
+      //   CURLOPT_HTTPHEADER => array(
+      //     "accept: application/json",
+      //     "content-type: application/json"
+      //   ),
+      // ));
 
-      $response = curl_exec($curl);
-      $err = curl_error($curl);
-      curl_close($curl);
+      // $response = curl_exec($curl);
+      // $err = curl_error($curl);
+      // curl_close($curl);
 
-      if ($err) {
-        Log::info($err);
-      } else {
-        Log::info($response);
-      }
+      // if ($err) {
+      //   Log::info($err);
+      // } else {
+      //   Log::info($response);
+      // }
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
       Log::info($e);
       return $e->getResponse()->getBody()->getContents();
