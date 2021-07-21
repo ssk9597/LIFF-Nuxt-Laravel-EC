@@ -63,7 +63,15 @@ class HubSpotController extends Controller
           "content-type: application/json"
         ),
       ));
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
       curl_close($curl);
+
+      if ($err) {
+        Log::info($err);
+      } else {
+        Log::info($response);
+      }
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
       Log::info($e);
       return $e->getResponse()->getBody()->getContents();
