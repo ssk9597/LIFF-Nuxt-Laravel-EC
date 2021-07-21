@@ -18,10 +18,10 @@ class HubSpotController extends Controller
 
       // env
       $clientID = config("env.line_client_id");
+      $HubSpotApiKey = config("env.hubspot_api_key");
 
       // guzzle
       $client = new Client();
-      $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
       $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
         "form_params" => [
           "id_token" => $idToken,
@@ -29,12 +29,26 @@ class HubSpotController extends Controller
         ]
       ]);
 
-      $profile = $response->getBody()->getContents();
-      $profile_json = json_decode($profile, true);
-      Log::info($profile);
-      Log::info($profile_json);
-      Log::info($profile_json["name"]);
-      Log::info($profile_json["email"]);
+      // HubSpot Value
+      $profile = json_decode($response->getBody()->getContents(), true);
+      $profileName = $profile["name"];
+      $profileEmail = $profile["email"];
+      Log::info($profile["name"]);
+      Log::info($profile["email"]);
+
+      $hubspot = $client->request("POST", "https://api.hubapi.com/crm/v3/objects/contacts?hapikey=" . $HubSpotApiKey, [
+        "headers" => [
+          'content-type' => 'application/json'
+        ],
+        'form_params' => [
+          "properties" => [
+            "email" => $profileEmail,
+            "firstname" => $profileName,
+          ]
+        ]
+      ]);
+
+      Log::info($hubspot);
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
       Log::info($e);
       return $e->getResponse()->getBody()->getContents();
