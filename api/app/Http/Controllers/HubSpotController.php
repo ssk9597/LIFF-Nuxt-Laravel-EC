@@ -36,22 +36,26 @@ class HubSpotController extends Controller
       Log::info($profile["name"]);
       Log::info($profile["email"]);
 
-      $a = [
-        "properties" => [
-          "email" => $profileEmail,
-          "firstname" => $profileName
-        ]
+      $data = [
+        "email" => $profileEmail,
+        "firstname" => $profileName
       ];
+      // $data = [
+      //   "properties" => [
+      //     "email" => $profileEmail,
+      //     "firstname" => $profileName
+      //   ]
+      // ];
 
-      $b = json_encode($a, JSON_UNESCAPED_UNICODE);
+      $formParams = json_encode($data, JSON_UNESCAPED_UNICODE);
 
-      Log::info($b);
+      Log::info($formParams);
 
       $hubspot = $client->request("POST", "https://api.hubapi.com/crm/v3/objects/contacts?hapikey=" . $HubSpotApiKey, [
         "headers" => [
           'content-type' => 'application/json'
         ],
-        'form_params' => [$b]
+        'form_params' => [$formParams]
       ]);
 
       Log::info($hubspot);
