@@ -36,16 +36,12 @@ class HubSpotController extends Controller
       Log::info($profile["name"]);
       Log::info($profile["email"]);
 
-      $data = [
-        "email" => $profileEmail,
-        "firstname" => $profileName
-      ];
-      // $data = [
-      //   "properties" => [
-      //     "email" => $profileEmail,
-      //     "firstname" => $profileName
-      //   ]
-      // ];
+      $data = array(
+        "properties" => [
+          "email" => $profileEmail,
+          "firstname" => $profileName
+        ]
+      );
 
       $formParams = json_encode($data, JSON_UNESCAPED_UNICODE);
 
