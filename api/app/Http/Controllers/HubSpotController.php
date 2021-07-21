@@ -33,7 +33,8 @@ class HubSpotController extends Controller
       $profile_json = json_decode($profile, true);
       Log::info($profile);
       Log::info($profile_json);
-      Log::info($profile_json->name);
+      Log::info($profile_json["name"]);
+      Log::info($profile_json["email"]);
     } catch (\GuzzleHttp\Exception\BadResponseException $e) {
       Log::info($e);
       return $e->getResponse()->getBody()->getContents();
