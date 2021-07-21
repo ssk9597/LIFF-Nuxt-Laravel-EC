@@ -51,7 +51,7 @@ class HubSpotController extends Controller
         "headers" => [
           'content-type' => 'application/json'
         ],
-        'form_params' => $b
+        'form_params' => [$b]
       ]);
 
       Log::info($hubspot);
