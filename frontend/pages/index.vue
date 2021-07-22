@@ -23,12 +23,12 @@ export default {
       products: '',
     };
   },
-  mounted() {
-    setTimeout(() => {
-      liff.init({
-        liffId: process.env.LIFF_ID,
-      });
-    }, 0);
+  async mounted() {
+    await liff.init({
+      liffId: process.env.LIFF_ID,
+    });
+
+    alert(liff.isInClient());
   },
 };
 </script>

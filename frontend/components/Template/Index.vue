@@ -35,15 +35,11 @@ export default {
             liffId: process.env.LIFF_ID,
           })
           .then(async () => {
-            await liff.sendMessages([
-              {
-                type: 'text',
-                text: 'OK',
-              },
-            ]);
             // IDトークン
+            alert(liff.isInClient());
             alert(liff.getOS());
             alert(liff.isLoggedIn());
+
             const idToken = liff.getIDToken();
             alert(idToken);
             if (idToken) {
