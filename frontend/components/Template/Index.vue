@@ -32,7 +32,8 @@ export default {
       try {
         // IDトークン
         alert(liff.getOS());
-        const idToken = await liff.getIDToken();
+        alert(liff.isLoggedIn());
+        const idToken = liff.getIDToken();
         alert(idToken);
         if (idToken) {
           await this.$axios.$post('/hubspot/store', {
