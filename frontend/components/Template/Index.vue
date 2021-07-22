@@ -27,6 +27,11 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    window.liff.init({
+      liffId: process.env.LIFF_ID,
+    });
+  },
   methods: {
     async lineLogin() {
       try {
