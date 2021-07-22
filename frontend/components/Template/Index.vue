@@ -30,21 +30,22 @@ export default {
   methods: {
     async lineLogin() {
       try {
-        window.liff.init({
+        liff.init({
           liffId: process.env.LIFF_ID,
+        }).then(() => {
+          // IDトークン
+          alert(liff.getOS());
+          alert(liff.isLoggedIn());
+          const idToken = liff.getIDToken();
+          alert(idToken);
+          if (idToken) {
+            await this.$axios.$post('/hubspot/store', {
+              idToken: idToken,
+            });
+          } else {
+            alert('ログイン失敗しました。もう一度お試しください。');
+          }
         });
-        // IDトークン
-        alert(liff.getOS());
-        alert(liff.isLoggedIn());
-        const idToken = liff.getIDToken();
-        alert(idToken);
-        if (idToken) {
-          await this.$axios.$post('/hubspot/store', {
-            idToken: idToken,
-          });
-        } else {
-          alert('ログイン失敗しました。もう一度お試しください。');
-        }
       } catch (err) {
         alert(err);
         alert(err.response.data.error);
