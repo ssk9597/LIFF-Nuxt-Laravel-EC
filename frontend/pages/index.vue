@@ -27,8 +27,6 @@ export default {
     await liff.init({
       liffId: process.env.LIFF_ID,
     });
-
-    alert(liff.isInClient());
   },
 };
 </script>
