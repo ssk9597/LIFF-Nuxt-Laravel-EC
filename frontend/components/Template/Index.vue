@@ -30,17 +30,17 @@ export default {
   methods: {
     async lineLogin() {
       try {
-        await liff.sendMessages([
-          {
-            type: 'text',
-            text: 'OK',
-          },
-        ]);
         await liff
           .init({
             liffId: process.env.LIFF_ID,
           })
           .then(async () => {
+            await liff.sendMessages([
+              {
+                type: 'text',
+                text: 'OK',
+              },
+            ]);
             // IDトークン
             alert(liff.getOS());
             alert(liff.isLoggedIn());
