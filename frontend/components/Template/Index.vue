@@ -36,7 +36,7 @@ export default {
     async lineLogin() {
       try {
         // IDトークン
-        const idToken = liff.getIDToken();
+        const idToken = await liff.getIDToken();
         alert(idToken);
         if (idToken) {
           await this.$axios.$post('/hubspot/store', {
