@@ -47,6 +47,10 @@ export default {
             } else {
               alert('ログイン失敗しました。もう一度お試しください。');
             }
+          })
+          .catch((err) => {
+            alert(err.code);
+            alert(err.message);
           });
       } catch (err) {
         alert(err);
