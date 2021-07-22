@@ -30,6 +30,9 @@ export default {
   methods: {
     async lineLogin() {
       try {
+        window.liff.init({
+          liffId: process.env.LIFF_ID,
+        });
         // IDトークン
         alert(liff.getOS());
         alert(liff.isLoggedIn());

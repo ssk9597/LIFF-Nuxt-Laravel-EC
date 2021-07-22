@@ -23,14 +23,14 @@ export default {
       products: '',
     };
   },
-  mounted() {
-    try {
-      window.liff.init({
-        liffId: process.env.LIFF_ID,
-      });
-    } catch (err) {
-      alert(err);
-    }
-  },
+  // mounted() {
+  //   try {
+  //     window.liff.init({
+  //       liffId: process.env.LIFF_ID,
+  //     });
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // },
 };
 </script>
