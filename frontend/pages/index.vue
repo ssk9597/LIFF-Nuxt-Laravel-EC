@@ -24,9 +24,13 @@ export default {
     };
   },
   mounted() {
-    window.liff.init({
-      liffId: process.env.LIFF_ID,
-    });
+    try {
+      window.liff.init({
+        liffId: process.env.LIFF_ID,
+      });
+    } catch (err) {
+      alert(err);
+    }
   },
 };
 </script>

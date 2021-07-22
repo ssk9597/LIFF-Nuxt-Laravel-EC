@@ -27,19 +27,11 @@ export default {
       required: true,
     },
   },
-  mounted() {
-    try {
-      window.liff.init({
-        liffId: process.env.LIFF_ID,
-      });
-    } catch (err) {
-      alert(err);
-    }
-  },
   methods: {
     async lineLogin() {
       try {
         // IDトークン
+        alert(liff.getOS());
         const idToken = await liff.getIDToken();
         alert(idToken);
         if (idToken) {
