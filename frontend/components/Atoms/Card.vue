@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     grandChildClick(product) {
-      this.$emit('grandChildClick', product);
+      this.$emit('childClick', product);
     },
   },
 };
