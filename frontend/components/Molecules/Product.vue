@@ -23,7 +23,9 @@ export default {
   },
   methods: {
     childClick(product) {
-      this.$emit('buyProducts', product);
+      alert('OK');
+      alert(product);
+      // this.$emit('buyProducts', product);
     },
   },
 };
