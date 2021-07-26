@@ -45,10 +45,11 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    async buyProducts(products) {
-      alert(products);
+    async buyProducts(product) {
+      alert(product);
+      alert(product.price);
       await this.$axios.$post('/stripe/store', {
-        products: products,
+        product: product,
       });
     },
   },
