@@ -45,7 +45,7 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    buyProducts(products) {
+    async buyProducts(products) {
       alert(products);
       await this.$axios.$post('/stripe/store', {
         products: products,
