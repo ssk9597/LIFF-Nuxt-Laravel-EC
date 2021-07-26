@@ -4,7 +4,7 @@
       <img class="card-product-img" :src="product.image.url" />
       <p class="card-product-name">{{ product.name }}</p>
       <p class="card-product-price">¥{{ product.price }}</p>
-      <Button :products="products" :buyProducts="buyProducts(product)" />
+      <Button :products="products" @click="grandChildClick(product)" />
     </div>
   </div>
 </template>
@@ -20,9 +20,10 @@ export default {
       type: Object,
       required: true,
     },
-    buyProducts: {
-      type: Function,
-      required: true,
+  },
+  methods: {
+    grandChildClick(product) {
+      this.$emit('grandChildClick', product);
     },
   },
 };

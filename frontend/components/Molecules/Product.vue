@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <Heading :main="'Product'" :sub="'商品'" />
-    <Card :products="products" :buyProducts="buyProducts(product)" />
+    <Card :products="products" @grandChildClick="childClick" />
   </div>
 </template>
 
@@ -20,9 +20,10 @@ export default {
       type: Object,
       required: true,
     },
-    buyProducts: {
-      type: Function,
-      required: true,
+  },
+  methods: {
+    childClick(product) {
+      this.$emit('childClick', product);
     },
   },
 };

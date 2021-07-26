@@ -3,7 +3,7 @@
     <Header />
     <Hero />
     <Registration :lineLogin="lineLogin" />
-    <Product :products="products" :buyProducts="buyProducts(product)" />
+    <Product :products="products" @childClick="buyProducts" />
   </div>
 </template>
 
