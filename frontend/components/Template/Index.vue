@@ -77,4 +77,31 @@ export default {
   max-width: 390px;
   padding-bottom: 60px;
 }
+
+.card {
+  &-container {
+    border-radius: 10px;
+    background: $color_white;
+    width: 250px;
+    height: 300px;
+    margin: 0 auto 30px auto;
+  }
+
+  &-product {
+    &-img {
+      border-radius: 10px 10px 0 0;
+      width: 250px;
+      height: 150px;
+    }
+
+    &-name {
+      padding: 20px 0 0 20px;
+    }
+
+    &-price {
+      padding: 20px 0 20px 20px;
+      font-weight: bold;
+    }
+  }
+}
 </style>
