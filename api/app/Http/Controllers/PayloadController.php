@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Stripe\Stripe;
+use Stripe\Checkout\Session;
 
 class PayloadController extends Controller
 {
@@ -10,7 +12,7 @@ class PayloadController extends Controller
   {
     // API
     $stripeApiKey = config("env.stripe_api_key");
-    \Stripe\Stripe::setApiKey($stripeApiKey);
+    Stripe::setApiKey($stripeApiKey);
 
     // header
     header('Content-Type: application/json');
@@ -24,7 +26,7 @@ class PayloadController extends Controller
     $productPrice = $request->input("productPrice");
 
     // checkout
-    $checkout_session = \Stripe\Checkout\Session::create([
+    $checkout_session = Session::create([
       'payment_method_types' => ['card'],
       'line_items' => [[
         'price' => $productPrice,
