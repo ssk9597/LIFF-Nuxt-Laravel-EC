@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <Heading :main="'Product'" :sub="'商品'" />
-    <Card :products="products" :buyProducts="buyProducts" />
+    <Card :products="products" :buyProducts="buyProducts(product)" />
   </div>
 </template>
 

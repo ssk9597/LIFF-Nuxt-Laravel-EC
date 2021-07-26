@@ -4,7 +4,7 @@
       <img class="card-product-img" :src="product.image.url" />
       <p class="card-product-name">{{ product.name }}</p>
       <p class="card-product-price">¥{{ product.price }}</p>
-      <Button :products="products" :buyProducts="buyProducts" />
+      <Button :products="products" :buyProducts="buyProducts(product)" />
     </div>
   </div>
 </template>
