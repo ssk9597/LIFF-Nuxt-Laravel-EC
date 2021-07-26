@@ -46,8 +46,10 @@ export default {
       }
     },
     buyProducts(products) {
-      console.log(products);
-      console.log('商品を購入する');
+      alert(products);
+      await this.$axios.$post('/stripe/store', {
+        products: products,
+      });
     },
   },
 };
