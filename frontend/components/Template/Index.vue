@@ -3,8 +3,7 @@
     <Header />
     <Hero />
     <Registration :lineLogin="lineLogin" />
-    <Product :products="products" />
-    <!-- <Product :products="products" @buyProducts="buyProducts" /> -->
+    <Product :products="products" @click="buyProducts" />
   </div>
 </template>
 
@@ -46,13 +45,12 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    // async buyProducts(product) {
-    //   alert(product);
-    //   alert(product.price);
-    //   await this.$axios.$post('/stripe/store', {
-    //     product: product,
-    //   });
-    // },
+    async buyProducts() {
+      alert('OK');
+      // await this.$axios.$post('/stripe/store', {
+      //   product: product,
+      // });
+    },
   },
 };
 </script>

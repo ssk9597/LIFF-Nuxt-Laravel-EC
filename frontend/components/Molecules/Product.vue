@@ -6,7 +6,7 @@
         <img class="card-product-img" :src="product.image.url" />
         <p class="card-product-name">{{ product.name }}</p>
         <p class="card-product-price">¥{{ product.price }}</p>
-        <Button :products="products" @click="childClick(product)" />
+        <Button :products="products" @click="childClick" />
       </div>
     </div>
   </div>
@@ -29,9 +29,8 @@ export default {
     },
   },
   methods: {
-    childClick(product) {
-      alert('OK');
-      alert(product);
+    childClick() {
+      this.$emit('click');
     },
   },
 };
