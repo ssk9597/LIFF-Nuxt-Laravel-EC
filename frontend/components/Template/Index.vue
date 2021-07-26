@@ -3,23 +3,35 @@
     <Header />
     <Hero />
     <Registration :lineLogin="lineLogin" />
-    <Product :products="products" @clickEvent="buyProducts" />
+    <div class="product">
+      <Heading :main="'Product'" :sub="'商品'" />
+      <div class="card">
+        <div class="card-container" v-for="product in products.contents" :key="product.id">
+          <img class="card-product-img" :src="product.image.url" />
+          <p class="card-product-name">{{ product.name }}</p>
+          <p class="card-product-price">¥{{ product.price }}</p>
+          <Button :products="products" @click="buyProducts(product)" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // components
+import Heading from '@/components/Atoms/Heading';
+import Button from '@/components/Atoms/Button';
 import Header from '@/components/Molecules/Header';
 import Hero from '@/components/Molecules/Hero';
 import Registration from '@/components/Molecules/Registration';
-import Product from '@/components/Molecules/Product';
 
 export default {
   components: {
+    Heading,
+    Button,
     Header,
     Hero,
     Registration,
-    Product,
   },
   props: {
     products: {
@@ -46,8 +58,9 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    buyProducts() {
-      alert('OK');
+    buyProducts(product) {
+      alert(product);
+      alert(product.price);
       // await this.$axios.$post('/stripe/store', {
       //   product: product,
       // });
