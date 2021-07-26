@@ -16,21 +16,23 @@ class PayloadController extends Controller
     header('Content-Type: application/json');
 
     // domain
-    $DOMAIN = "https://liff-nuxt-laravel-ec.netlify.app";
+    $domain = "https://liff-nuxt-laravel-ec.netlify.app";
 
-    // product_price
-
+    // product
+    $productImage = $request->input("productImage");
+    $productName = $request->input("productName");
+    $productPrice = $request->input("productPrice");
 
     // checkout
-    // $checkout_session = \Stripe\Checkout\Session::create([
-    //   'payment_method_types' => ['card'],
-    //   'line_items' => [[
-    //     'price' => '{{PRICE_ID}}',
-    //     'quantity' => 1,
-    //   ]],
-    //   'mode' => 'payment',
-    //   'success_url' => $DOMAIN . '/success.html',
-    //   'cancel_url' => $DOMAIN . '/cancel.html',
-    // ]);
+    $checkout_session = \Stripe\Checkout\Session::create([
+      'payment_method_types' => ['card'],
+      'line_items' => [[
+        'price' => $productPrice,
+        'quantity' => 1,
+      ]],
+      'mode' => 'payment',
+      'success_url' => $domain . '/success.html',
+      'cancel_url' => $domain . '/cancel.html',
+    ]);
   }
 }

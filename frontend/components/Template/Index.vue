@@ -59,7 +59,9 @@ export default {
     },
     buyProducts(product) {
       await this.$axios.$post('/stripe/store', {
-        product: product,
+        productImage: product.image.url,
+        productName: product.name,
+        productPrice: product.price,
       });
     },
   },
