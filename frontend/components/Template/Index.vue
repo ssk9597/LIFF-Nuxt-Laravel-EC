@@ -10,7 +10,9 @@
           <img class="card-product-img" :src="product.image.url" />
           <p class="card-product-name">{{ product.name }}</p>
           <p class="card-product-price">¥{{ product.price }}</p>
-          <Button :products="products" @click="buyProducts(product)" />
+          <div class="button">
+            <button class="button-btn" @click="buyProducts(product)">購入する</button>
+          </div>
         </div>
       </div>
     </div>
@@ -20,7 +22,6 @@
 <script>
 // components
 import Heading from '@/components/Atoms/Heading';
-import Button from '@/components/Atoms/Button';
 import Header from '@/components/Molecules/Header';
 import Hero from '@/components/Molecules/Hero';
 import Registration from '@/components/Molecules/Registration';
@@ -28,7 +29,6 @@ import Registration from '@/components/Molecules/Registration';
 export default {
   components: {
     Heading,
-    Button,
     Header,
     Hero,
     Registration,
@@ -102,6 +102,19 @@ export default {
       padding: 20px 0 20px 20px;
       font-weight: bold;
     }
+  }
+}
+
+.button {
+  text-align: center;
+  &-btn {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: $color_yellow;
+    border-color: transparent;
   }
 }
 </style>
