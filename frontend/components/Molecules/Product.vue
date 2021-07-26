@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     childClick() {
-      this.$emit('click');
+      this.$emit('clickEvent');
     },
   },
 };

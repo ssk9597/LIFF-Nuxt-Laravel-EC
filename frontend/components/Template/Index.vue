@@ -3,7 +3,7 @@
     <Header />
     <Hero />
     <Registration :lineLogin="lineLogin" />
-    <Product :products="products" @click="buyProducts" />
+    <Product :products="products" @clickEvent="buyProducts" />
   </div>
 </template>
 
@@ -32,6 +32,7 @@ export default {
       try {
         // IDトークン
         const idToken = liff.getIDToken();
+        alert(idToken);
         if (idToken) {
           await this.$axios.$post('/hubspot/store', {
             idToken: idToken,
@@ -45,7 +46,7 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    async buyProducts() {
+    buyProducts() {
       alert('OK');
       // await this.$axios.$post('/stripe/store', {
       //   product: product,
