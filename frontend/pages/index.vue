@@ -23,8 +23,8 @@ export default {
       products: '',
     };
   },
-  mounted() {
-    window.liff.init({
+  async mounted() {
+    await liff.init({
       liffId: process.env.LIFF_ID,
     });
   },

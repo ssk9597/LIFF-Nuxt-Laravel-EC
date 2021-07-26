@@ -28,8 +28,22 @@ export default {
     },
   },
   methods: {
-    lineLogin() {
-      console.log('LINEログインをクリックしました');
+    async lineLogin() {
+      try {
+        // IDトークン
+        const idToken = liff.getIDToken();
+        if (idToken) {
+          await this.$axios.$post('/hubspot/store', {
+            idToken: idToken,
+          });
+        } else {
+          alert('ログイン失敗しました。もう一度お試しください。');
+        }
+      } catch (err) {
+        alert(err);
+        alert(err.response.data.error);
+        alert(err.response.data.error_description);
+      }
     },
     buyProducts(products) {
       console.log(products);
