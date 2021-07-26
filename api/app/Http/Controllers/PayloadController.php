@@ -31,8 +31,11 @@ class PayloadController extends Controller
         'quantity' => 1,
       ]],
       'mode' => 'payment',
-      'success_url' => $domain . '/success.html',
-      'cancel_url' => $domain . '/cancel.html',
+      'success_url' => $domain . '/success',
+      'cancel_url' => $domain . '/cancel',
     ]);
+
+    header("HTTP/1.1 303 See Other");
+    header("Location: " . $checkout_session->url);
   }
 }
