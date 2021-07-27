@@ -38,7 +38,9 @@ class PayloadController extends Controller
       'cancel_url' => $domain . '/cancel',
     ]);
 
+
     header("HTTP/1.1 303 See Other");
     header("Location: " . $checkout_session->url);
+    return $checkout_session;
   }
 }
