@@ -2,8 +2,8 @@
   <div class="container">
     <Header />
     <div class="message">
-      <p>商品購入に失敗しました。</p>
-      <p>もう一度ご確認ください。</p>
+      <p class="message-text">商品購入に失敗しました。</p>
+      <p class="message-text">もう一度ご確認ください。</p>
     </div>
   </div>
 </template>
@@ -27,6 +27,11 @@ export default {
   padding-bottom: 60px;
 }
 .message {
-  padding-bottom: 20px;
+  padding-top: 70px;
+
+  &-text {
+    padding: 0 10px;
+    line-height: 1.5;
+  }
 }
 </style>

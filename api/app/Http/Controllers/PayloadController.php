@@ -17,8 +17,8 @@ class PayloadController extends Controller
     // header
     header('Content-Type: application/json');
 
-    // domain
-    $domain = "https://liff-nuxt-laravel-ec.netlify.app";
+    // domain（仮ドメイン）
+    $domain = "https://deploy-preview-4--liff-nuxt-laravel-ec.netlify.app";
 
     // product
     $productImage = $request->input("productImage");
