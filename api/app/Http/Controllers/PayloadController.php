@@ -7,7 +7,7 @@ use Illuminate\Http\Response;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 
-require 'vendor/autoload.php';
+require __DIR__ . '../vendor/autoload.php';
 
 class PayloadController extends Controller
 {
