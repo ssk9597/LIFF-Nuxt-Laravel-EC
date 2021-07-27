@@ -1,13 +1,32 @@
 <template>
-  <div>
-    <p>商品購入に失敗しました。</p>
-    <p>もう一度ご確認ください。</p>
+  <div class="container">
+    <Header />
+    <div class="message">
+      <p>商品購入に失敗しました。</p>
+      <p>もう一度ご確認ください。</p>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+// components
+import Header from '@/components/Molecules/Header';
+export default {
+  components: {
+    Header,
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+.container {
+  margin: 0 auto;
+  background: $color_gray;
+  width: 100%;
+  max-width: 390px;
+  padding-bottom: 60px;
+}
+.message {
+  padding-bottom: 20px;
+}
 </style>
