@@ -11,7 +11,7 @@
           <p class="card-product-name">{{ product.name }}</p>
           <p class="card-product-price">¥{{ product.price }}</p>
           <div class="button">
-            <button class="button-btn" @click="buyProducts(product)">購入する</button>
+            <button class="button-btn" @click="checkout(product)">購入する</button>
           </div>
         </div>
       </div>
@@ -57,12 +57,15 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    async buyProducts(product) {
-      await this.$axios.$post('/stripe/store', {
-        productImage: product.image.url,
-        productName: product.name,
-        productPrice: product.price,
-        productStripePriceApi: product.stripe_price_api,
+    checkout(product) {
+      this.$router.push({
+        path: 'checkout',
+        query: {
+          image: product.image.url,
+          name: product.name,
+          price: product.price,
+          stripePriceApi: product.stripe_price_api,
+        },
       });
     },
   },
