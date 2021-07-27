@@ -20,16 +20,6 @@ export default {
   },
   methods: {
     async buyProducts() {
-      alert(this.$route.query.name);
-      this.$router.push({
-        path: 'checkout',
-        query: {
-          image: product.image.url,
-          name: product.name,
-          price: product.price,
-          stripePriceApi: product.stripe_price_api,
-        },
-      });
       await this.$axios.$post('/stripe/store', {
         productImage: this.$route.query.image,
         productName: this.$route.query.name,
