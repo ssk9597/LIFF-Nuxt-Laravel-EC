@@ -38,9 +38,11 @@ class PayloadController extends Controller
       'cancel_url' => $domain . '/cancel',
     ]);
 
+    // header("HTTP/1.1 303 See Other");
+    // header("Location: " . $checkout_session->url);
 
-    header("HTTP/1.1 303 See Other");
-    header("Location: " . $checkout_session->url);
+    // リダイレクト検証
+    header("Location: https://www.google.com/", true, 303);
     return $checkout_session;
   }
 }
