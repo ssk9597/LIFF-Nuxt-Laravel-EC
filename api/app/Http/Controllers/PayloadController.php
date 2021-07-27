@@ -7,8 +7,6 @@ use Illuminate\Http\Response;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 
-require __DIR__ . '../vendor/autoload.php';
-
 class PayloadController extends Controller
 {
   public function store(Request $request, Response $response)
@@ -18,7 +16,7 @@ class PayloadController extends Controller
     Stripe::setApiKey($stripeApiKey);
 
     // header
-    // header('Content-Type: application/json');
+    header('Content-Type: application/json');
 
     // domain（仮ドメイン）
     $domain = "https://deploy-preview-4--liff-nuxt-laravel-ec.netlify.app";
