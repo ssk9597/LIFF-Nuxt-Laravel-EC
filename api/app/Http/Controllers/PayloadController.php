@@ -41,8 +41,6 @@ class PayloadController extends Controller
     // header("HTTP/1.1 303 See Other");
     // header("Location: " . $checkout_session->url);
 
-    // リダイレクト検証
-    header("Location: https://www.google.com/", true, 303);
-    return $checkout_session;
+    return redirect($checkout_session->url, 303, [], true);
   }
 }
