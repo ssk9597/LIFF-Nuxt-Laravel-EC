@@ -62,6 +62,7 @@ export default {
         productImage: product.image.url,
         productName: product.name,
         productPrice: product.price,
+        productStripePriceApi: product.stripe_price_api,
       });
     },
   },

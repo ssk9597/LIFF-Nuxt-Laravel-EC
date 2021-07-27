@@ -24,12 +24,13 @@ class PayloadController extends Controller
     $productImage = $request->input("productImage");
     $productName = $request->input("productName");
     $productPrice = $request->input("productPrice");
+    $productStripePriceApi = $request->input("productStripePriceApi");
 
     // checkout
     $checkout_session = Session::create([
       'payment_method_types' => ['card'],
       'line_items' => [[
-        'price' => "price_1JHdiHLuL9a4TdlenMTQfxzQ",
+        'price' => $productStripePriceApi,
         'quantity' => 1,
       ]],
       'mode' => 'payment',
