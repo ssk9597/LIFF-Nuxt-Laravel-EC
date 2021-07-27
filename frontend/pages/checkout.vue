@@ -4,7 +4,7 @@
     <p class="card-product-name">{{ this.$route.query.name }}</p>
     <p class="card-product-price">¥{{ this.$route.query.price }}</p>
     <div class="button">
-      <button class="button-btn" @click="buyProducts">購入する</button>
+      <button type="submit" class="button-btn" @click="buyProducts">購入する</button>
     </div>
   </div>
 </template>
