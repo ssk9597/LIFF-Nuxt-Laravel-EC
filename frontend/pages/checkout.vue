@@ -27,7 +27,7 @@ export default {
         productStripePriceApi: this.$route.query.stripePriceApi,
       });
       if (url) {
-        this.$router.push(url);
+        window.location.href = url;
       }
     },
   },
