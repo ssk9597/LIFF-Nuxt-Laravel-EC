@@ -41,6 +41,7 @@ class PayloadController extends Controller
     // header("HTTP/1.1 303 See Other");
     // header("Location: " . $checkout_session->url);
 
-    return redirect($checkout_session->url, 303, [], true);
+    // return redirect($checkout_session->url, 303, [], true);
+    return redirect($checkout_session->url);
   }
 }
