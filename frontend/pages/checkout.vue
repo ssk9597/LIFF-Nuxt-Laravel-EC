@@ -20,13 +20,15 @@ export default {
   },
   methods: {
     async buyProducts() {
-      const res = await this.$axios.$post('/stripe/store', {
+      const url = await this.$axios.$post('/stripe/store', {
         productImage: this.$route.query.image,
         productName: this.$route.query.name,
         productPrice: this.$route.query.price,
         productStripePriceApi: this.$route.query.stripePriceApi,
       });
-      console.log(res);
+      if (url) {
+        this.$router.push(url);
+      }
     },
   },
 };
