@@ -21,9 +21,6 @@ class PayloadController extends Controller
     $domain = "https://deploy-preview-4--liff-nuxt-laravel-ec.netlify.app";
 
     // product
-    $productImage = $request->input("productImage");
-    $productName = $request->input("productName");
-    $productPrice = $request->input("productPrice");
     $productStripePriceApi = $request->input("productStripePriceApi");
 
     // checkout
@@ -37,9 +34,6 @@ class PayloadController extends Controller
       'success_url' => $domain . '/success',
       'cancel_url' => $domain . '/cancel',
     ]);
-
-    // header("HTTP/1.1 303 See Other");
-    // header("Location: " . $checkout_session->url);
 
     // return redirect($checkout_session->url, 303, [], true);
     return $checkout_session->url;

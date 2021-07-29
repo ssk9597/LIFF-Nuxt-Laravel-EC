@@ -57,16 +57,13 @@ export default {
         alert(err.response.data.error_description);
       }
     },
-    checkout(product) {
-      this.$router.push({
-        path: 'checkout',
-        query: {
-          image: product.image.url,
-          name: product.name,
-          price: product.price,
-          stripePriceApi: product.stripe_price_api,
-        },
+    async checkout(product) {
+      const url = await this.$axios.$post('/stripe/store', {
+        productStripePriceApi: this.$route.query.stripePriceApi,
       });
+      if (url) {
+        window.location.href = url;
+      }
     },
   },
 };
