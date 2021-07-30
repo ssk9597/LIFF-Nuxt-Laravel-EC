@@ -25,6 +25,7 @@ export default {
 .container {
   margin: 0 auto;
   background: $color_gray;
+  height: 100vh;
   width: 100%;
   max-width: 390px;
   padding-bottom: 60px;

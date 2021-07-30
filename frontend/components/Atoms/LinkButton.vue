@@ -10,7 +10,7 @@ export default {};
 
 <style lang="scss" scoped>
 .button {
-  margin: 20px auto 0 auto;
+  margin: 40px auto 0 auto;
   width: 200px;
   height: 40px;
   background: $color_yellow;
