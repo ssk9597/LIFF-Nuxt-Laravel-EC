@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// stripe
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
+// guzzle
+use GuzzleHttp\Client;
 
 class PayloadController extends Controller
 {
@@ -23,8 +26,27 @@ class PayloadController extends Controller
     // product
     $productStripePriceApi = $request->input("productStripePriceApi");
 
+    // line
+    $idToken = $request->input("idToken");
+
+    // env
+    $clientID = config("env.line_client_id");
+
+    // guzzle
+    $client = new Client();
+    $response = $client->request("POST", "https://api.line.me/oauth2/v2.1/verify", [
+      "form_params" => [
+        "id_token" => $idToken,
+        "client_id" => $clientID
+      ]
+    ]);
+
+    $profile = json_decode($response->getBody()->getContents(), true);
+    $profileEmail = $profile["email"];
+
     // checkout
     $checkout_session = Session::create([
+      'customer_email' => $profileEmail,
       'payment_method_types' => ['card'],
       'line_items' => [[
         'price' => $productStripePriceApi,
