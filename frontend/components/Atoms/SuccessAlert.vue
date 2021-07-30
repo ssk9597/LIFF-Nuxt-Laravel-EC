@@ -21,7 +21,7 @@ export default {};
   align-items: center;
 
   &-title {
-    font-size: 20px;
+    font-size: 12px;
     color: $color_white;
   }
 }

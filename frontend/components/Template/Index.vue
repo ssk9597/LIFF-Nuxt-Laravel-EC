@@ -60,10 +60,10 @@ export default {
   updated() {
     setTimeout(() => {
       this.isSuccess = false;
-    }, 1000);
+    }, 3000);
     setTimeout(() => {
       this.isFail = false;
-    }, 1000);
+    }, 3000);
   },
   methods: {
     async lineLogin() {
