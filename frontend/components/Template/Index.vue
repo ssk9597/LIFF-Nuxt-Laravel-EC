@@ -59,7 +59,7 @@ export default {
     },
     async checkout(product) {
       const url = await this.$axios.$post('/stripe/store', {
-        productStripePriceApi: this.$route.query.stripePriceApi,
+        productStripePriceApi: product.stripe_price_api,
       });
       if (url) {
         window.location.href = url;
