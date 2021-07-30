@@ -4,6 +4,7 @@
     <div class="message">
       <p class="message-text">ご購入ありがとうございます！</p>
       <p class="message-text">ご不明点がありましたらお気軽にご連絡ください。</p>
+      <LinkButton />
     </div>
   </div>
 </template>
@@ -11,9 +12,11 @@
 <script>
 // components
 import Header from '@/components/Molecules/Header';
+import LinkButton from '@/components/Atoms/LinkButton';
 export default {
   components: {
     Header,
+    LinkButton,
   },
 };
 </script>
