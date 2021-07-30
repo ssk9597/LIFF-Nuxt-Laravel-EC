@@ -50,7 +50,6 @@ export default {
       try {
         // IDトークン
         this.idToken = liff.getIDToken();
-        alert(this.idToken);
         if (this.idToken) {
           await this.$axios.$post('/hubspot/store', {
             idToken: this.idToken,
