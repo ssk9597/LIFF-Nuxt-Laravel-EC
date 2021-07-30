@@ -1,5 +1,11 @@
 <template>
   <div class="container">
+    <div v-if="isSuccess">
+      <SuccessAlert />
+    </div>
+    <div v-if="isFail">
+      <FailAlert />
+    </div>
     <Header />
     <Hero />
     <Registration :lineLogin="lineLogin" />
@@ -23,6 +29,8 @@
 <script>
 // components
 import Heading from '@/components/Atoms/Heading';
+import SuccessAlert from '@/components/Atoms/SuccessAlert';
+import FailAlert from '@/components/Atoms/FailAlert';
 import Header from '@/components/Molecules/Header';
 import Hero from '@/components/Molecules/Hero';
 import Registration from '@/components/Molecules/Registration';
@@ -30,6 +38,8 @@ import Registration from '@/components/Molecules/Registration';
 export default {
   components: {
     Heading,
+    SuccessAlert,
+    FailAlert,
     Header,
     Hero,
     Registration,
@@ -43,7 +53,17 @@ export default {
   data() {
     return {
       idToken: '',
+      isSuccess: false,
+      isFail: false,
     };
+  },
+  updated() {
+    setTimeout(() => {
+      this.isSuccess = false;
+    }, 1000);
+    setTimeout(() => {
+      this.isFail = false;
+    }, 1000);
   },
   methods: {
     async lineLogin() {
@@ -54,8 +74,9 @@ export default {
           await this.$axios.$post('/hubspot/store', {
             idToken: this.idToken,
           });
+          this.isSuccess = true;
         } else {
-          alert('ログイン失敗しました。もう一度お試しください。');
+          this.isFail = true;
         }
       } catch (err) {
         alert(err);
@@ -64,7 +85,6 @@ export default {
       }
     },
     async checkout(product) {
-      alert(this.idToken);
       const url = await this.$axios.$post('/stripe/store', {
         productStripePriceApi: product.stripe_price_api,
         idToken: this.idToken,
