@@ -11,7 +11,8 @@
           <p class="card-product-name">{{ product.name }}</p>
           <p class="card-product-price">¥{{ product.price }}</p>
           <div class="button">
-            <button class="button-btn" @click="checkout(product)">購入する</button>
+            <button v-if="idToken" class="button-btn" @click="checkout(product)">購入する</button>
+            <button v-else class="button-btn disabled" disabled>購入する</button>
           </div>
         </div>
       </div>
@@ -39,14 +40,20 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      idToken: '',
+    };
+  },
   methods: {
     async lineLogin() {
       try {
         // IDトークン
-        const idToken = liff.getIDToken();
-        if (idToken) {
+        this.idToken = liff.getIDToken();
+        alert(this.idToken);
+        if (this.idToken) {
           await this.$axios.$post('/hubspot/store', {
-            idToken: idToken,
+            idToken: this.idToken,
           });
         } else {
           alert('ログイン失敗しました。もう一度お試しください。');
@@ -115,6 +122,11 @@ export default {
     font-weight: bold;
     background: $color_yellow;
     border-color: transparent;
+
+    &.disabled {
+      color: $color_deep_gray;
+      background: $color_gray;
+    }
   }
 }
 </style>
