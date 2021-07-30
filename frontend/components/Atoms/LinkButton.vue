@@ -10,15 +10,22 @@ export default {};
 
 <style lang="scss" scoped>
 .button {
-  text-align: center;
+  position: relative;
+  margin: 20px auto 0 auto;
+  width: 200px;
+  height: 40px;
+  background: $color_yellow;
+  border-color: transparent;
   &-btn {
-    display: inline-block;
-    width: 200px;
-    height: 40px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 18px;
+    color: $color_black;
+    text-decoration: none;
     font-weight: bold;
-    background: $color_yellow;
-    border-color: transparent;
   }
 }
 </style>
