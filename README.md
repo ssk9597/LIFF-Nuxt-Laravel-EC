@@ -4,7 +4,7 @@ LIFF で動く EC サイトです。
 
 ### 商品はダウンロード商品に限定し、住所の入力が必要なくなるため会員登録は LINE ログインにする。
 
-### ユーザーの購入した商品や行動ログを取得し、HubSpot に登録
+### 決済はStripeで行う
 
 ## デザイン
 ![Design](https://user-images.githubusercontent.com/70458379/124701894-56a1d900-df2a-11eb-8b2a-7559b2a9fb21.png)
