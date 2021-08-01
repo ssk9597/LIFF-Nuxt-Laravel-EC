@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { API_URL, LIFF_ID, LIFF_CHANNEL_ID, MICROCMS_API_KEY, HUBSPOT_API_KEY } = process.env;
+const { API_URL, LIFF_ID, LIFF_CHANNEL_ID, MICROCMS_API_KEY } = process.env;
 
 export default {
   target: 'static',
@@ -42,7 +42,6 @@ export default {
     LIFF_ID,
     LIFF_CHANNEL_ID,
     MICROCMS_API_KEY,
-    HUBSPOT_API_KEY,
   },
 
   proxy: {
